@@ -1,0 +1,181 @@
+/* Genel Ayarlar ve Tema */
+:root {
+    --primary-color: #4CAF50; /* Kayıt butonu yeşil */
+    --accent-color: #FFC107; /* Vurgu (Uyarı) sarı */
+    --background-dark: #1e1e1e; /* Koyu arka plan */
+    --card-dark: #2d2d2d; /* Kart (Form/Tablo) arka planı */
+    --text-light: #f0f0f0; /* Açık metin rengi */
+    --border-color: #444; /* Koyu sınır çizgisi */
+    --success-color: #28a745; /* Yeşil başarı */
+    --danger-color: #dc3545; /* Kırmızı dolu */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: var(--background-dark);
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+h1, h2 {
+    color: var(--text-light);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+}
+
+/* Kart Stili (Form ve Listeleme Alanları) */
+.kayit-formu, .proje-listesi-kapsayici {
+    margin-bottom: 40px;
+    padding: 30px;
+    border-radius: 12px;
+    background-color: var(--card-dark);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* Form Elemanları */
+input[type="text"], input[type="email"], textarea {
+    width: calc(100% - 24px); /* Padding dahil edilmiştir */
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    background-color: var(--background-dark);
+    color: var(--text-light);
+    box-sizing: border-box; /* Padding'i genişliğe dahil eder */
+}
+
+textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+button {
+    cursor: pointer;
+    padding: 12px 25px;
+    margin-right: 15px;
+    border-radius: 8px;
+    border: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, opacity 0.3s ease; /* Opaklık geçişi eklendi */
+}
+
+/* Kayıt Butonu */
+.kayit-formu button {
+    background-color: var(--primary-color);
+    color: var(--background-dark);
+}
+
+.kayit-formu button:hover {
+    background-color: #45a049;
+}
+
+/* Liste Yenile Butonu */
+.proje-listesi-kapsayici button {
+    background-color: #444;
+    color: var(--text-light);
+    margin-bottom: 20px;
+}
+
+.proje-listesi-kapsayici button:hover {
+    background-color: #555;
+}
+
+/* Mesaj Alanı */
+#mesaj {
+    font-weight: bold;
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#mesaj[style*="red"] {
+    background-color: #dc354530; /* Kırmızı arka planın şeffaf hali */
+    color: var(--danger-color) !important;
+}
+#mesaj[style*="green"] {
+    background-color: #28a74530;
+    color: var(--success-color) !important;
+}
+
+/* Tablo Stili */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--card-dark);
+    border-radius: 8px;
+    overflow: hidden; /* Köşeler için */
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+th {
+    background-color: #383838; /* Başlık arka planı */
+    color: var(--text-light);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+/* Kayıt Durumu Renkleri (Devamı) */
+.doluluk-durumu {
+    font-weight: bold;
+}
+
+/* Tablo İçindeki Doluluk Durumlarını Emojiye Göre Daha Belirginleştirme */
+td:nth-child(2) { /* İkinci kolon (Kayıtlı Öğrenci Sayısı) */
+    font-weight: 700;
+}
+
+/* Bağlantı Stili */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+/* YÖNETİCİ SIFIRLAMA BUTONU STİLİ */
+.admin-button {
+    background-color: #444; /* Yöneticiye özel gri ton */
+    color: #eee;
+    padding: 8px 15px;
+    font-size: 0.8em; /* Küçük boyut */
+    opacity: 0.4; /* Hafif saydamlık: Gizli/yönetici olduğu vurgulanır */
+    border-radius: 4px;
+    margin-top: 15px;
+    display: inline-block;
+    float: right; /* Sayfanın sağ alt köşesine hizalar */
+}
+
+.admin-button:hover {
+    background-color: var(--danger-color); /* Üzerine gelince kırmızı tehlike rengi */
+    opacity: 1; /* Tam görünür hale gelir */
+}
+.footer {
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 20px;
+    font-size: 0.8em;
+    color: #888; /* Gri ton, baskın olmaması için */
+    border-top: 1px solid var(--border-color); /* Hafif ayırıcı çizgi */
+}
+
+.footer a {
+    color: var(--primary-color);
+    text-decoration: underline; /* Link olduğunu belli et */
+}
+
+.footer a:hover {
+    color: var(--accent-color);
+}
+/* Kayıt Durumu Renkleri

@@ -1,0 +1,46 @@
+HELP.md
+target/
+.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+# ... Mevcut içerik yukarıda kalacak ...
+# .vscode/
+
+# H2 Dosya Tabanlı Veritabanı
+# Uygulama durduğunda verilerinizi tutan klasörü Git'e yüklemeyin!
+/data/
+*.mv.db
+*.trace.db
+
+# Ortam Değişkenleri (Lokal Çalışma Ayarları)
+# Eğer bu dosyada API anahtarını tanımlıyorsanız, hariç tutun.
+# ENV kullandığımız için bu gereksiz ama ekstra güvenlik için iyidir.
+# application.properties

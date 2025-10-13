@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Haftalık Proje Kayıt Sistemi</title>
+    <link rel="stylesheet" href="style.css"> </head>
+<body>
+<h1>Proje Ödevi Kayıt Sistemi</h1>
+
+<div class="kayit-formu">
+    <h2>Yeni Proje Kaydı</h2>
+    <input type="text" id="isim" placeholder="İsim">
+    <input type="text" id="soyad" placeholder="Soyad">
+    <input type="text" id="okulNo" placeholder="Okul No (6 Rakam)">
+    <input type="email" id="email" placeholder="E-posta (OkulNo@firat.edu.tr)">
+
+    <input type="text" id="projeAdi" placeholder="Proje Adı (Örn: Araç Kiralama Otomasyonu)">
+    <textarea id="projeAciklamasi" placeholder="Proje Açıklaması (Detaylı Bilgi)"></textarea>
+
+    <button onclick="kayitOl()">Projeye Kaydol</button>
+    <p id="mesaj"></p>
+</div>
+
+<hr style="border-color: #383838; margin: 40px 0;">
+
+<div class="proje-listesi-kapsayici">
+    <h2>Mevcut Proje Kontenjanları</h2>
+    <button onclick="projeleriGetir()">Listeyi Yenile</button>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Proje Adı</th>
+            <th>Kayıtlı Öğrenci Sayısı</th>
+            <th>Kayıtlı Öğrenciler (Okul No)</th>
+            <th>Açıklama</th>
+        </tr>
+        </thead>
+        <tbody id="projeListesi">
+        </tbody>
+    </table>
+</div>
+
+<p class="excel-link">
+    <a href="/api/projeler/excel" target="_blank">Tüm Kayıtları Hoca İçin Excel/CSV Olarak İndir</a>
+</p>
+
+<button id="sifirlaButonu" onclick="veritabaniSifirla()" class="admin-button">
+    Veritabanını Sıfırla (Yönetici)
+</button>
+<footer class="footer">
+    <p>
+        &copy; 2025 Built by : Irfan DUMAN |
+        <a href="https://www.linkedin.com/in/idmn/" target="_blank">LinkedIn</a>
+    </p>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
