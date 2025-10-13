@@ -4,10 +4,10 @@ const projeListesiElementi = document.getElementById('projeListesi');
 
 // Kısıtlayıcı Sabitler
 const MAX_KISI = 3;
-// E-posta formatı regex'i: Tam 6 Rakam@firat.edu.tr
-const EMAIL_REGEX = /^\d{6}@firat\.edu\.tr$/;
-// Okul No formatı regex'i: Tam 6 Rakam
-const OKUL_NO_REGEX = /^\d{6}$/;
+// E-posta formatı regex'i: Tam 9 Rakam@firat.edu.tr
+const EMAIL_REGEX = /^\d{9}@firat\.edu\.tr$/;
+// Okul No formatı regex'i: Tam 9 Rakam
+const OKUL_NO_REGEX = /^\d{9}$/;
 
 // Projeye Kayıt Olma Fonksiyonu
 async function kayitOl() {
@@ -42,7 +42,7 @@ async function kayitOl() {
     }
 
     // !!! EN KRİTİK KONTROL: OKUL NO ve E-POSTA EŞLEŞMESİ !!!
-    const emailPrefix = requestData.email.substring(0, 6);
+    const emailPrefix = requestData.email.substring(0, 9);
     if (requestData.okulNo !== emailPrefix) {
         gosterMesaj("Hata: Okul Numarası e-posta adresinizin ilk 6 hanesiyle eşleşmelidir.", 'red');
         return;

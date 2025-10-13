@@ -28,11 +28,11 @@ public class ProjeService {
     private static final String GPT_MODEL = "gpt-3.5-turbo"; // Kullanılacak model
     // E-posta formatını kontrol eden Pattern objesi
     private static final Pattern EMAIL_PATTERN =
-            Pattern.compile("^\\d{6}@firat\\.edu\\.tr$", Pattern.CASE_INSENSITIVE);
+            Pattern.compile("^\\d{9}@firat\\.edu\\.tr$", Pattern.CASE_INSENSITIVE);
 
-    // YENİ: Okul Numarası formatını kontrol eden Pattern objesi (Tam 6 rakam)
+    // YENİ: Okul Numarası formatını kontrol eden Pattern objesi (Tam 9 rakam)
     private static final Pattern OKUL_NO_PATTERN =
-            Pattern.compile("^\\d{6}$");
+            Pattern.compile("^\\d{9}$");
 
     // application.properties'den (veya ENV'den) OpenAI API key'i al
     @Value("${openai.api.key}")
@@ -141,12 +141,12 @@ public class ProjeService {
     public Proje yeniKayitOlustur(ProjeKayıtRequest request) {
         // YENİ GÜVENLİK KONTROLÜ: Okul No Formatı
         if (request.getOkulNo() == null || !OKUL_NO_PATTERN.matcher(request.getOkulNo()).matches()) {
-            throw new RuntimeException("Veri Bütünlüğü Hatası: Okul Numarası formatı geçersiz. Tam 6 rakam bekleniyor.");
+            throw new RuntimeException("Veri Bütünlüğü Hatası: Okul Numarası formatı geçersiz. Tam 9 rakam bekleniyor.");
         }
 
         // E-posta Formatı Kontrolü
         if (request.getEmail() == null || !EMAIL_PATTERN.matcher(request.getEmail()).matches()) {
-            throw new RuntimeException("Veri Bütünlüğü Hatası: E-posta formatı geçersiz. 6 Rakam@firat.edu.tr bekleniyor.");
+            throw new RuntimeException("Veri Bütünlüğü Hatası: E-posta formatı geçersiz. 9 Rakam@firat.edu.tr bekleniyor.");
         }
 
         if (projeRepository.existsByOkulNo(request.getOkulNo())) {
