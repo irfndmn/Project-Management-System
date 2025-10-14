@@ -2,7 +2,7 @@ package com.example.ntpproject;
 import lombok.Data;
 
 @Data
-public class ProjeKayıtRequest {
+public class ProjeKayitRequest {
     private String ogrenciIsim;
     private String ogrenciSoyad;
     private String okulNo;

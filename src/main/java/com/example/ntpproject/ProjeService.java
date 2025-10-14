@@ -138,7 +138,7 @@ public class ProjeService {
     /**
      * Yeni bir öğrenci ve proje kaydı oluşturur, İKİ SEVİYELİ benzerlik kontrolü yapar.
      */
-    public Proje yeniKayitOlustur(ProjeKayıtRequest request) {
+    public Proje yeniKayitOlustur(ProjeKayitRequest request) {
         // YENİ GÜVENLİK KONTROLÜ: Okul No Formatı
         if (request.getOkulNo() == null || !OKUL_NO_PATTERN.matcher(request.getOkulNo()).matches()) {
             throw new RuntimeException("Veri Bütünlüğü Hatası: Okul Numarası formatı geçersiz. Tam 9 rakam bekleniyor.");

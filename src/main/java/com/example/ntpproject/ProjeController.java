@@ -32,7 +32,7 @@ public class ProjeController {
     // 1. ÖĞRENCİ KAYIT (POST)
     @PostMapping("/kaydet")
     // Formdan gelen JSON verisini doğrudan DTO'ya map eder.
-    public Proje yeniKayitOlustur(@RequestBody ProjeKayıtRequest request) { // DTO adı düzeltildi
+    public Proje yeniKayitOlustur(@RequestBody ProjeKayitRequest request) { // DTO adı düzeltildi
         try {
             return projeService.yeniKayitOlustur(request);
         } catch (RuntimeException e) {
