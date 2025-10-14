@@ -1,32 +1,26 @@
-# Dockerfile
+# Stage 1: Build
+FROM maven:3.9.5-eclipse-temurin-17 AS build
 
-# Stage 1: Build (Projeyi Derleme Aşaması)
-FROM maven:3.9.5-eclipse-temurin-21 AS build
+# UTF-8 ortam değişkenleri
+ENV LANG=C.UTF-8
+ENV LC_ALL=C.UTF-8
+ENV LANGUAGE=en_US:en
 
 WORKDIR /app
 
-# 1. Bağımlılıkları Önbellekleme Katmanı
-# Sadece pom.xml dosyasını kopyala. Bu katman, sadece pom.xml değiştiğinde yeniden çalışır.
 COPY pom.xml .
-
-# Bağımlılıkları indir, ancak bir şey derleme. (Projenizdeki ilk build'den çok daha hızlıdır.)
 RUN mvn dependency:go-offline -B
 
-# 2. Kod Değişiklikleri Katmanı
-# Kalan tüm proje dosyalarını kopyala (bu katman, kod her değiştiğinde yeniden çalışır.)
 COPY src /app/src
+RUN mvn clean package -DskipTests -Dproject.build.sourceEncoding=UTF-8
 
-# Kodu derle
-RUN mvn clean package -DskipTests
+# Stage 2: Run
+FROM eclipse-temurin:17-jre-alpine
 
-# Stage 2: Run (Uygulamayı Çalıştırma Aşaması)
-FROM eclipse-temurin:21-jre-alpine
+ENV LANG=C.UTF-8
+ENV LC_ALL=C.UTF-8
+ENV LANGUAGE=en_US:en
 
-# Render'da oluşan JAR dosyasını kopyala
 COPY --from=build /app/target/*.jar app.jar
-
-# Uygulamanın çalışacağı portu belirt
 EXPOSE 8080
-
-# Uygulamayı başlat
 ENTRYPOINT ["java", "-jar", "/app.jar"]
