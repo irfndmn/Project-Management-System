@@ -31,20 +31,20 @@ async function kayitOl() {
 
     // Okul Numarası Formatı Kontrolü
     if (!OKUL_NO_REGEX.test(requestData.okulNo)) {
-        gosterMesaj("Hata: Okul Numarası formatı geçersiz. Tam 6 rakamdan oluşmalıdır.", 'red');
+        gosterMesaj("Hata: Okul Numarası formatı geçersiz. Tam 9 rakamdan oluşmalıdır.", 'red');
         return;
     }
 
     // E-posta Formatı Kontrolü
     if (!EMAIL_REGEX.test(requestData.email)) {
-        gosterMesaj("Hata: E-posta formatı geçersiz. '6 Rakam@firat.edu.tr' (örneğin: 123456@firat.edu.tr) olmalıdır.", 'red');
+        gosterMesaj("Hata: E-posta formatı geçersiz. '9 Rakam@firat.edu.tr' (örneğin: 123456@firat.edu.tr) olmalıdır.", 'red');
         return;
     }
 
     // !!! EN KRİTİK KONTROL: OKUL NO ve E-POSTA EŞLEŞMESİ !!!
     const emailPrefix = requestData.email.substring(0, 9);
     if (requestData.okulNo !== emailPrefix) {
-        gosterMesaj("Hata: Okul Numarası e-posta adresinizin ilk 6 hanesiyle eşleşmelidir.", 'red');
+        gosterMesaj("Hata: Okul Numarası e-posta adresinizin ilk 9 hanesiyle eşleşmelidir.", 'red');
         return;
     }
 
